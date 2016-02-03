@@ -14,6 +14,7 @@ require 'fastly/cache_setting'
 require 'fastly/condition'
 require 'fastly/customer'
 require 'fastly/dictionary'
+require 'fastly/dictionary_item'
 require 'fastly/director'
 require 'fastly/domain'
 require 'fastly/header'
@@ -138,7 +139,7 @@ class Fastly
     client.get_stats('/stats/regions')
   end
 
-  [User, Customer, Backend, CacheSetting, Condition, Dictionary, Director, Domain, Header, Healthcheck, Gzip, Match, Origin, RequestSetting, ResponseObject, Service, S3Logging, Syslog, VCL, Version].each do |klass|
+  [User, Customer, Backend, CacheSetting, Condition, Dictionary, DictionaryItem, Director, Domain, Header, Healthcheck, Gzip, Match, Origin, RequestSetting, ResponseObject, Service, S3Logging, Syslog, VCL, Version].each do |klass|
     type = Util.class_to_path(klass)
 
     if klass.respond_to?('pluralize'.to_sym)
